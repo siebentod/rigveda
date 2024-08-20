@@ -163,6 +163,13 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>Ригведа</title>
+        <meta
+          name="description"
+          content="Все гимны Ригведы с возможностью поиска"
+        />
+      </Helmet>
       <div className={`prajapati ${!showFilter ? 'filterHidden' : ''}`}>
         {/* <HeadInHelmet /> */}
         <span
