@@ -6,7 +6,10 @@ function HeadInHelmet() {
     <>
       <Helmet>
         <title>Ригведа</title>
-        <meta name="description" content="Гимны Ригведы" />
+        <meta
+          name="description"
+          content="Все гимны Ригведы с возможностью поиска"
+        />
       </Helmet>
       <header>
         <div className="links">

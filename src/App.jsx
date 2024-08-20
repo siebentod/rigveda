@@ -216,7 +216,10 @@ function App() {
             <Modal showModal={showModal} onClose={closeModal}>
               <Helmet>
                 <title>{modalContent.title}</title>
-                <meta name="description" content="Гимны Ригведы" />
+                <meta
+                  name="description"
+                  content="Все гимны Ригведы с возможностью поиска"
+                />
               </Helmet>
               <h2>{modalContent.title}</h2>
               <p>{parse(modalContent.hymn)}</p>
