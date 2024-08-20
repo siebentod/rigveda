@@ -12,7 +12,7 @@ function About() {
               отсюда<span className="external-link"></span>
             </a>{' '}
             и переделан в формат{' '}
-            <a href="https://github.com/siebentod/rigveda/blob/main/src/data.jsx">
+            <a href="https://github.com/siebentod/rigveda/blob/main/src/data.js">
               js-объекта<span className="external-link"></span>
             </a>
             . По карибским законам последний может быть переделан во что угодно
