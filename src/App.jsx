@@ -44,7 +44,7 @@ function InitialText() {
           <li>
             <Link to="1_90">I, 90. Ко Всем-Богам</Link>
           </li>
-          <li>
+          <li style={{ marginTop: '5px' }}>
             <Link to="9_112">IX, 112. О хотениях</Link>
           </li>
           <li>
