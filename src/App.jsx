@@ -14,7 +14,7 @@ function InitialText() {
   return (
     <div className="modal-content">
       <div className="modal-scrollable-content">
-        <p>Гимны Ригведы в переводе Т.Я. Елизаренковой.</p>
+        <p>Гимны Ригведы в переводе Т.Я. Елизаренковой</p>
         <p>
           Примечательное:
           <li>
@@ -181,13 +181,12 @@ function App() {
         {showFilter && (
           <div className="filter">
             <div className="inputPlusRandom">
-              <div className="inputPlusCheckbox">
+              <div className="inputPlusCheckbox scalable">
                 <input
                   onChange={onSearchChange}
                   type="search"
                   value={searchText}
                   placeholder="Поиск по тексту"
-                  className="scalable"
                 />
                 <input
                   type="checkbox"
