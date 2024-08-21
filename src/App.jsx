@@ -1,79 +1,16 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import parse from 'html-react-parser';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { data } from './data.js';
 import Modal from './Modal.jsx';
 import Footer from './Footer';
 import { Helmet } from 'react-helmet';
+import HomeText from './HomeText.jsx';
+// import NotFound from './NotFound.jsx';
 
 // const favorites = ['10_90', '10_129'];
 // const initialText = favorites[Math.floor(Math.random() * favorites.length)];
-
-function InitialText() {
-  return (
-    <div className="modal-content">
-      <div className="modal-scrollable-content">
-        <p>Гимны Ригведы в переводе Т.Я. Елизаренковой</p>
-        <p>
-          Примечательное:
-          <li>
-            <Link to="10_90">X, 90 О сотворении мира из Пуруши</Link>
-          </li>
-          <li>
-            <Link to="10_129">X, 129. Космогония («Одно»)</Link>
-          </li>
-          <li>
-            <Link to="10_190">X, 190. Космический жар</Link>
-          </li>
-          <li>
-            <Link to="10_121">X, 121. К неизвестному богу (Праджапати)</Link>
-          </li>
-          <li style={{ marginTop: '5px' }}>
-            <Link to="6_64">VI, 64. К Ушас (утренней заре)</Link>
-          </li>
-          <li>
-            <Link to="10_127">X, 127. К Ратри (ночи)</Link>
-          </li>
-          <li>
-            <Link to="10_146">X, 146. К Араньяни (лесу)</Link>
-          </li>
-          <li>
-            <Link to="6_70">VI, 70. К Небу-и-Земле</Link>
-          </li>
-          <li>
-            <Link to="1_90">I, 90. Ко Всем-Богам</Link>
-          </li>
-          <li style={{ marginTop: '5px' }}>
-            <Link to="9_112">IX, 112. О хотениях</Link>
-          </li>
-          <li>
-            <Link to="10_159">X, 159. Самовосхваление женщины</Link>
-          </li>
-          <li>
-            <Link to="10_10">X, 10. Яма и Ями</Link>
-          </li>
-          <li>
-            <Link to="10_183">X, 183. На рождение сына</Link>
-          </li>
-          <li>
-            <Link to="10_18">X, 18. Похоронный гимн</Link>
-          </li>
-          <li>
-            <Link to="10_135">X, 135. Разговор мальчика и умершего отца</Link>
-          </li>
-        </p>
-        <p>
-          Текст с благодарностью взят{' '}
-          <a href="https://samskrtam.ru/parallel-corpus/rigveda.html">
-            отсюда<span className="external-link"></span>
-          </a>
-          .
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -82,6 +19,7 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [strict, setStrict] = useState(false);
   const [filteredCount, setFilteredCount] = useState(0);
+  const [filteredArr, setFilteredArr] = useState(data);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -122,16 +60,13 @@ function App() {
   //   }
   // }, [showModal]);
 
-  const applyFilters = () => {
-    return data.filter((item) => {
-      const matchesContent = looseIncludes(searchText, item);
-      return matchesContent;
-    });
-  };
+  useEffect(() => {
+    setFilteredArr(data.filter((item) => looseIncludes(searchText, item)));
+  }, [searchText, strict]);
 
   useEffect(() => {
-    setFilteredCount(applyFilters().length);
-  }, [applyFilters]);
+    setFilteredCount(filteredArr.length);
+  }, [filteredArr]);
 
   const onSearchChange = (e) => {
     const value = e.target.value;
@@ -151,8 +86,7 @@ function App() {
   };
 
   const handleRandom = (e) => {
-    const random =
-      applyFilters()[Math.floor(Math.random() * applyFilters().length)];
+    const random = filteredArr[Math.floor(Math.random() * filteredArr.length)];
     openModal(e, random);
   };
 
@@ -208,7 +142,7 @@ function App() {
         )}
         <main className={!showFilter ? 'filterHidden' : ''}>
           <div className="cards">
-            {applyFilters().map((obj) => (
+            {filteredArr.map((obj) => (
               <a
                 href={`/${obj.id}`}
                 className="card card__title"
@@ -237,7 +171,7 @@ function App() {
               ) : null}
             </Modal>
           ) : (
-            <InitialText />
+            <HomeText />
           )}
         </main>
       </div>
