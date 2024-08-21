@@ -14,7 +14,7 @@ function HeadInHelmet() {
       <header>
         <div className="links">
           <div className="link link__github">
-            <a href="https://github.com/siebentod/rigveda">
+            <a href="https://github.com/siebentod/">
               Github<span className="external-link"></span>
             </a>
           </div>

@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer>
       <Link to="/about">About</Link> |{' '}
-      <a href="https://github.com/siebentod/rigveda">
+      <a href="https://github.com/siebentod/">
         Github<span className="external-link"></span>
       </a>
     </footer>
