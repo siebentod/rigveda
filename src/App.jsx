@@ -54,6 +54,9 @@ function InitialText() {
             <Link to="10_10">X, 10. Яма и Ями</Link>
           </li>
           <li>
+            <Link to="10_183">X, 183. На рождение сына</Link>
+          </li>
+          <li>
             <Link to="10_18">X, 18. Похоронный гимн</Link>
           </li>
           <li>
