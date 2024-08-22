@@ -39,13 +39,8 @@ footer {
   }
 }
 
-.prajapati {
-  height: 100dvh;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  &.filterHidden {
-    grid-template-rows: auto;
-  }
+button {
+  font-family: inherit;
 }
 
 h1,
@@ -57,13 +52,18 @@ h6 {
   margin: 0;
 }
 
-button {
-  font-family: inherit;
-}
-
 .bigBlank {
   display: block !important;
   margin-bottom: 0.4rem !important;
+}
+
+.prajapati {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  &.filterHidden {
+    grid-template-rows: auto;
+  }
 }
 
 main {
