@@ -10,21 +10,6 @@ a {
   box-sizing: border-box;
 }
 
-footer {
-  margin: 0 0 1px 0;
-  text-align: center;
-  font-size: 0.938rem;
-  span {
-    filter: brightness(0) invert(1);
-  }
-  a {
-    color: white;
-  }
-  a:hover {
-    color: #c2c9d6;
-  }
-}
-
 :root {
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -55,6 +40,21 @@ h6 {
 .bigBlank {
   display: block !important;
   margin-bottom: 0.4rem !important;
+}
+
+footer {
+  margin: 0 0 1px 0;
+  text-align: center;
+  font-size: 0.938rem;
+  span {
+    filter: brightness(0) invert(1);
+  }
+  a {
+    color: white;
+  }
+  a:hover {
+    color: #c2c9d6;
+  }
 }
 
 .prajapati {
@@ -139,7 +139,7 @@ main {
   .inputPlusRandom {
     display: grid;
     grid-auto-flow: row;
-    gap: 11px;
+    gap: 7px;
 
     .openRandom {
       height: 27px;
@@ -187,6 +187,13 @@ main {
           outline: none;
         }
         &::placeholder {
+          color: #8f96a3;
+          font: inherit;
+        }
+        &::-moz-placeholder {
+          color: #8f96a3;
+          font: inherit;
+          opacity: 1;
         }
       }
 
