@@ -101,7 +101,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Ригведа</title>
+        <title>Ригведа | Все гимны Ригведы</title>
         <meta
           name="description"
           content="Все гимны Ригведы с возможностью поиска"
