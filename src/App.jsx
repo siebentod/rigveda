@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './App.scss';
 import parse from 'html-react-parser';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -23,16 +23,19 @@ function App() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  function looseIncludes(searchPhrase, targetObject) {
-    const sum = targetObject.title + ' ' + targetObject.hymn;
-    const regex = new RegExp(
-      `(^|[^а-яёa-zA-Z])${searchPhrase.toLowerCase()}`,
-      'g'
-    );
-    return strict
-      ? sum.toLowerCase().match(regex)
-      : sum.toLowerCase().includes(searchPhrase.toLowerCase());
-  }
+  const looseIncludes = useCallback(
+    function looseIncludes(searchPhrase, targetObject) {
+      const sum = targetObject.title + ' ' + targetObject.hymn;
+      const regex = new RegExp(
+        `(^|[^а-яёa-zA-Z])${searchPhrase.toLowerCase()}`,
+        'g'
+      );
+      return strict
+        ? sum.toLowerCase().match(regex)
+        : sum.toLowerCase().includes(searchPhrase.toLowerCase());
+    },
+    [strict]
+  );
 
   useEffect(() => {
     if (id) {
@@ -62,7 +65,7 @@ function App() {
 
   useEffect(() => {
     setFilteredArr(data.filter((item) => looseIncludes(searchText, item)));
-  }, [searchText, strict]);
+  }, [looseIncludes, searchText, strict]);
 
   useEffect(() => {
     setFilteredCount(filteredArr.length);
