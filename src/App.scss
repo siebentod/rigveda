@@ -2,6 +2,12 @@ a {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.87);
   text-decoration: inherit;
+  &:hover {
+    color: #c2c9d6;
+  }
+  &:active {
+    color: #1d1e20;
+  }
 }
 
 *,
@@ -75,6 +81,7 @@ main {
   max-width: 95dvw;
   min-height: 0;
   height: 98%;
+  font-size: 1rem;
   &.filterHidden {
     height: 95%;
   }
@@ -279,16 +286,6 @@ main {
   @media (max-width: 350px) {
     position: inherit;
     float: left;
-  }
-}
-
-a {
-  font-size: 0.9rem;
-  &:hover {
-    color: #c2c9d6;
-  }
-  &:active {
-    color: #1d1e20;
   }
 }
 
