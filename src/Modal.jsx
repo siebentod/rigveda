@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import './Modal.scss';
 
 function Modal({ showModal, onClose, children }) {
   const modalRef = useRef(null);

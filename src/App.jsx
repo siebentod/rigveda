@@ -1,18 +1,23 @@
 import { useCallback, useEffect, useState } from 'react';
 import './App.scss';
 import parse from 'html-react-parser';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { data } from './data.js';
 import Modal from './Modal.jsx';
-import Footer from './Footer';
 import { Helmet } from 'react-helmet';
 import HomeText from './HomeText.jsx';
+import { FaGithub } from 'react-icons/fa';
+import { FaInfo } from 'react-icons/fa';
+import { FaArrowUp } from 'react-icons/fa';
 // import NotFound from './NotFound.jsx';
 
 // const favorites = ['10_90', '10_129'];
 // const initialText = favorites[Math.floor(Math.random() * favorites.length)];
 
 function App() {
+  // const [isDarkMode, setIsDarkMode] = useState(() => {
+  //   return localStorage.getItem('theme') === 'dark';
+  // });
   const [showModal, setShowModal] = useState(false);
   const [showFilter, setShowFilter] = useState(true);
   const [modalContent, setModalContent] = useState(null);
@@ -22,6 +27,14 @@ function App() {
   const [filteredArr, setFilteredArr] = useState(data);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  // const toggleTheme = () => {
+  //   setIsDarkMode((prevMode) => !prevMode);
+  // };
+
+  // useEffect(() => {
+  //   localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  // }, [isDarkMode]);
 
   const looseIncludes = useCallback(
     function looseIncludes(searchPhrase, targetObject) {
@@ -116,10 +129,19 @@ function App() {
           className={`arrow ${!showFilter ? ' toggle' : ''}`}
           onClick={handleArrow}
         >
-          ↑
+          <FaArrowUp />
         </span>
         {showFilter && (
           <div className="filter">
+            <div className="icons scalable-icons">
+              <Link to="/about">
+                <FaInfo />
+              </Link>
+              <a href="https://github.com/siebentod/rigveda">
+                <FaGithub />
+              </a>
+              {/* <FaAdjust onClick={toggleTheme} /> */}
+            </div>
             <div className="inputPlusRandom">
               <div className="inputPlusCheckbox scalable">
                 <input
@@ -178,7 +200,7 @@ function App() {
           )}
         </main>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

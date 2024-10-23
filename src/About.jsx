@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
 
 function About() {
   return (
     <>
       {/* <HeadInHelmet /> */}
       <div className="about">
+        <div className="about__icons">
+          <Link to="/">
+            <FaHome />
+          </Link>
+        </div>
         <div className="about__main">
           <p>
             Текст с благодарностью взят{' '}
@@ -20,12 +26,6 @@ function About() {
           </p>
         </div>
       </div>
-      <footer>
-        <Link to="/">Home</Link> |{' '}
-        <a href="https://github.com/siebentod/">
-          Github<span className="external-link"></span>
-        </a>
-      </footer>
     </>
   );
 }
