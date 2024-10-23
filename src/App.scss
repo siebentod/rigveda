@@ -109,7 +109,7 @@ main {
     transition: all 300ms;
     color: $buttons-text;
     border-bottom: 1px solid $border-color;
-    border-right: 1px solid $border-color;
+    // border-right: 1px solid $border-color;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -304,6 +304,9 @@ main {
   }
   a {
     text-decoration: underline;
+    &:hover {
+      color: #5c5c5c;
+    }
     i {
       font-size: 12px !important;
     }
@@ -353,11 +356,10 @@ main {
   color: black;
   text-align: left;
   a {
-    color: #20355d;
     font-size: 1rem;
+    text-decoration: underline;
     &:hover {
-      // text-decoration: underline;
-      color: #72819c;
+      color: #5c5c5c;
     }
   }
 }
