@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 
 import './App.scss';
-import './fonts.css';
 import { data } from './data.js';
 import Modal from './Modal.jsx';
 import HomeText from './HomeText.jsx';
