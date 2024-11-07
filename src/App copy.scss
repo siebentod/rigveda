@@ -1,33 +1,16 @@
-$primary-background: #d3b151;
-$text-background: white;
-// $almost-black: rgb(45, 45, 45);
-
-$border: hsl(45, 65%, 69%);
-
-$card-background: hsl(241, 50%, 35%);
-// $card-background: rgb(43, 37, 103);
-$card-border: hsl(241, 35%, 45%);
-$card-hover: hsl(241, 40%, 40%);
-
-$button-background: hsl(241, 50%, 35%);
-$button-border: $button-background;
-$button-hover: hsl(241, 40%, 50%);
-
+$primary-background: white;
 $input-background: white;
-$input-text: black;
-// $input-border: rgb(255, 202, 0);
-$placeholder-color: rgb(120, 120, 120);
+$text-background: white;
+$border-color: rgb(120, 120, 120);
+$border-color-darker: rgb(90, 90, 90);
+$almost-black: rgb(45, 45, 45);
 
-$scrollbar-thumb: rgb(178, 176, 192);
+$card-background: white;
+$card-hover: rgb(240, 240, 240);
+
+$scrollbar-thumb: rgb(190, 190, 190);
 $scrollbar-track: rgb(220, 220, 220);
-
-$buttons-text: white;
-$modal-links-text: rgb(59, 59, 90);
-$modal-links-text-hover: rgb(109, 109, 150);
-
-$icons: hsl(241, 50%, 43%);
-$close: rgb(90, 90, 90);
-$close-hover: rgb(2, 0, 70);
+$buttons-text: black;
 
 a {
   font-weight: 500;
@@ -44,20 +27,6 @@ a {
 :root {
   color: $buttons-text;
   background-color: $primary-background;
-  min-height: 100dvh;
-  // background: linear-gradient(
-  //   #d1ad49 0%,
-  //   #e3c15b 14%,
-  //   #e3c15b 86%,
-  //   #d1ad49 100%
-  // );
-  background: linear-gradient(
-    hsl(45, 65%, 67%) 0%,
-    hsl(45, 65%, 72%) 14%,
-    hsl(45, 65%, 72%) 86%,
-    hsl(44, 64%, 67%) 100%
-  );
-
   body {
     font-family: Calibri, Arial, Helvetica, sans-serif;
     margin: 0;
@@ -117,7 +86,7 @@ main {
   margin: auto !important;
   justify-content: center;
   align-items: center;
-  column-gap: 8px;
+  column-gap: 5px;
   max-width: 95dvw;
   min-height: 0;
   height: 98%;
@@ -134,34 +103,31 @@ main {
   height: 100%;
   max-width: 33dvw;
   margin: auto;
-  width: 100%;
-  border: 1px solid $border;
-  transition: transform 0.1s ease;
-  transform: translateX(0);
-  &.cardsHidden {
-    width: 0;
-    transform: translateX(-250px);
-    overflow: hidden;
-    border: 0;
-  }
+  border: 1px solid $border-color;
 
   .card {
+    transition: all 300ms;
     color: $buttons-text;
-    border-bottom: 1px solid $card-border;
-    // border-right: 1px solid $border;
+    border-bottom: 1px solid $border-color;
+    // border-right: 1px solid $border-color;
     cursor: pointer;
     display: flex;
-    padding: 2px;
+    flex-direction: column;
+    padding: 0 !important;
     &:last-child {
       border-bottom: none;
     }
   }
 
   .card__title {
+    padding: 2px;
     font-size: 0.938rem;
     background-color: $card-background;
+    flex: 1;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
     justify-content: center;
-    transition: background-color 100ms ease-in-out;
     &:hover {
       background-color: $card-hover;
     }
@@ -182,7 +148,7 @@ main {
   gap: 3px;
   * {
     cursor: pointer;
-    color: $icons;
+    color: $almost-black;
   }
 }
 
@@ -191,9 +157,8 @@ main {
   left: 1dvw;
   top: 5px;
   font-size: 1.1rem;
-  gap: 3px;
   * {
-    color: $button-background;
+    color: $almost-black;
   }
 }
 
@@ -206,17 +171,10 @@ main {
   text-align: center;
   position: relative;
 
-  .filter__buttons {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 10px;
-  }
-
   .inputPlusRandom {
     display: grid;
     grid-auto-flow: row;
-    gap: 12px;
-    margin: 0 12px;
+    gap: 7px;
 
     .openRandom {
       height: 27px;
@@ -227,15 +185,14 @@ main {
       color: $buttons-text;
       margin: 3px 0 1px 0;
       grid-column: 2;
-      background-color: $button-background;
-      border: 1px solid $button-border;
+      background-color: $input-background;
+      border: 1px solid $border-color-darker;
       outline: none;
       font-family: Inter, Calibri, Verdana, system-ui, Avenir, Helvetica, Arial,
         sans-serif;
       border-radius: 4px;
-      user-select: none;
       &:hover {
-        background-color: $button-hover;
+        background-color: $card-hover;
         outline: none;
       }
     }
@@ -248,7 +205,7 @@ main {
       input[type='search'] {
         height: 100%;
         background-color: $input-background;
-        border: 0;
+        border: 1px solid $border-color-darker;
         outline: none;
         font-family: Inter, Calibri, Verdana, system-ui, Avenir, Helvetica,
           Arial, sans-serif;
@@ -256,7 +213,7 @@ main {
         text-align: center;
         font-size: 0.813rem;
         padding: 3px 0;
-        color: $input-text;
+        color: $buttons-text;
         // &:hover {
         //   border: 1px solid #c2c9d6;
         //   transition: border-color 0.25s;
@@ -266,12 +223,11 @@ main {
           outline: none;
         }
         &::placeholder {
-          user-select: none;
-          color: $placeholder-color;
+          color: $border-color;
           font: inherit;
         }
         &::-moz-placeholder {
-          color: $placeholder-color;
+          color: $border-color;
           font: inherit;
           opacity: 1;
         }
@@ -279,7 +235,7 @@ main {
 
       input[type='checkbox'] {
         cursor: pointer;
-        accent-color: $button-background;
+        accent-color: $buttons-text;
       }
     }
   }
@@ -287,8 +243,6 @@ main {
   .countResults {
     font-style: italic;
     grid-column: 1;
-    color: black;
-    user-select: none;
     @media (max-height: 500px) {
       font-size: 0.75rem !important;
     }
@@ -313,56 +267,25 @@ main {
   }
 }
 
-.arrow-left {
+.arrow {
   font-size: 11px;
   padding: 3px;
-  align-self: center;
-  height: max-content;
-  width: max-content;
   border-radius: 50%;
-  background-color: $button-background;
-  border: 1px solid $button-border;
-  cursor: pointer;
-  z-index: 5;
+  background-color: $input-background;
+  border: 1px solid $border-color-darker;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(-90deg);
-  &:hover {
-    background-color: $button-hover;
-  }
-  &.toggle {
-    transform: rotate(90deg);
-  }
-  &.move {
-    position: fixed;
-    left: 1dvw;
-    top: 6px;
-  }
-}
-
-.arrow-up {
-  font-size: 11px;
-  padding: 3px;
-  align-self: center;
-  height: max-content;
-  width: max-content;
-  border-radius: 50%;
-  background-color: $button-background;
-  border: 1px solid $button-border;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  right: 1dvw;
+  top: 6px;
   cursor: pointer;
   z-index: 5;
   &:hover {
-    background-color: $button-hover;
+    background-color: $card-hover;
   }
   &.toggle {
     transform: rotate(180deg);
-    position: fixed;
-    right: 1dvw;
-    top: 6px;
   }
 }
 
@@ -380,20 +303,14 @@ main {
     }
   }
   a {
-    color: black;
     text-decoration: underline;
     &:hover {
-      color: rgb(120, 120, 120);
+      color: black;
     }
     i {
       font-size: 12px !important;
     }
   }
-}
-.about__main {
-  background-color: white;
-  padding: 2dvh 2dvw;
-  color: black;
 }
 
 *::-webkit-search-cancel-button {
@@ -428,7 +345,7 @@ main {
 .modal-content {
   position: relative;
   padding: 4dvh 4dvw;
-  border: 1px solid $border;
+  border: 1px solid $border-color;
   overflow-y: auto;
   max-width: 630px;
   grid-column: 2;
@@ -440,9 +357,9 @@ main {
   text-align: left;
   a {
     font-size: 1rem;
-    color: $modal-links-text;
+    color: #565656;
     &:hover {
-      color: $modal-links-text-hover;
+      color: black;
     }
   }
 }
@@ -463,9 +380,9 @@ span.external-link {
   background: none;
   border: none;
   cursor: pointer;
-  color: $close;
+  color: $border-color-darker;
   &:hover {
-    color: $close-hover;
+    color: $border-color;
   }
 }
 

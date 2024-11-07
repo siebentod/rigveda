@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 
 import './App.scss';
-import './fonts.css';
 import { data } from './data.js';
 import Modal from './Modal.jsx';
 import HomeText from './HomeText.jsx';
@@ -169,6 +168,9 @@ function App() {
                 <button className="openRandom scalable" onClick={handleRandom}>
                   Open Random
                 </button>
+                <div className="countResults" style={{ fontSize: '0.8rem' }}>
+                  {filteredCount} результатов найдено
+                </div>
               </div>
             )}
             <div
@@ -178,11 +180,6 @@ function App() {
               <FaArrowUp />
             </div>
           </div>
-          {showFilter && searchText && (
-            <div className="countResults" style={{ fontSize: '0.8rem' }}>
-              {filteredCount} результатов найдено
-            </div>
-          )}
         </div>
         <main className={!showFilter ? 'filterHidden' : ''}>
           <div className={`cards ${!showCards ? 'cardsHidden' : ''}`}>
@@ -193,7 +190,9 @@ function App() {
                 key={obj.id}
                 onClick={(e) => handleClick(e, obj)}
               >
-                <p>{obj.title}</p>
+                <div className="card__title">
+                  <p>{obj.title}</p>
+                </div>
               </a>
             ))}
           </div>

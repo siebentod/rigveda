@@ -1,17 +1,17 @@
-$primary-background: #d3b151;
+$primary-background: hsl(245, 50%, 25);
 $text-background: white;
 // $almost-black: rgb(45, 45, 45);
 
-$border: hsl(45, 65%, 69%);
+$border: $primary-background;
 
-$card-background: hsl(241, 50%, 35%);
+$card-background: hsl(48, 97%, 74%);
 // $card-background: rgb(43, 37, 103);
-$card-border: hsl(241, 35%, 45%);
-$card-hover: hsl(241, 40%, 40%);
+$card-border: hsl(48, 80%, 63%);
+$card-hover: hsl(48, 97%, 83%);
 
-$button-background: hsl(241, 50%, 35%);
-$button-border: $button-background;
-$button-hover: hsl(241, 40%, 50%);
+$button-background: hsl(48, 97%, 65%);
+$button-border: $primary-background;
+$button-hover: hsl(48, 100%, 70%);
 
 $input-background: white;
 $input-text: black;
@@ -21,11 +21,10 @@ $placeholder-color: rgb(120, 120, 120);
 $scrollbar-thumb: rgb(178, 176, 192);
 $scrollbar-track: rgb(220, 220, 220);
 
-$buttons-text: white;
+$buttons-text: black;
 $modal-links-text: rgb(59, 59, 90);
 $modal-links-text-hover: rgb(109, 109, 150);
 
-$icons: hsl(241, 50%, 43%);
 $close: rgb(90, 90, 90);
 $close-hover: rgb(2, 0, 70);
 
@@ -45,21 +44,21 @@ a {
   color: $buttons-text;
   background-color: $primary-background;
   min-height: 100dvh;
+  font-family: Calibri, Arial, Helvetica, sans-serif;
   // background: linear-gradient(
   //   #d1ad49 0%,
   //   #e3c15b 14%,
   //   #e3c15b 86%,
   //   #d1ad49 100%
   // );
-  background: linear-gradient(
-    hsl(45, 65%, 67%) 0%,
-    hsl(45, 65%, 72%) 14%,
-    hsl(45, 65%, 72%) 86%,
-    hsl(44, 64%, 67%) 100%
-  );
+  // background: linear-gradient(
+  //   #dbb95b 0%,
+  //   #e3c97c 14%,
+  //   #e3c97c 86%,
+  //   #dbb95b 100%
+  // );
 
   body {
-    font-family: Calibri, Arial, Helvetica, sans-serif;
     margin: 0;
     align-items: center;
     div#root {
@@ -117,7 +116,7 @@ main {
   margin: auto !important;
   justify-content: center;
   align-items: center;
-  column-gap: 8px;
+  column-gap: 5px;
   max-width: 95dvw;
   min-height: 0;
   height: 98%;
@@ -148,10 +147,10 @@ main {
   .card {
     color: $buttons-text;
     border-bottom: 1px solid $card-border;
+    padding: 2px;
     // border-right: 1px solid $border;
     cursor: pointer;
     display: flex;
-    padding: 2px;
     &:last-child {
       border-bottom: none;
     }
@@ -160,6 +159,10 @@ main {
   .card__title {
     font-size: 0.938rem;
     background-color: $card-background;
+    flex: 1;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
     justify-content: center;
     transition: background-color 100ms ease-in-out;
     &:hover {
@@ -182,7 +185,7 @@ main {
   gap: 3px;
   * {
     cursor: pointer;
-    color: $icons;
+    color: $button-background;
   }
 }
 
@@ -215,12 +218,12 @@ main {
   .inputPlusRandom {
     display: grid;
     grid-auto-flow: row;
-    gap: 12px;
-    margin: 0 12px;
+    gap: 7px;
 
     .openRandom {
       height: 27px;
       font-size: 0.813rem;
+      // font-weight: 600;
       padding: 0 1em;
       cursor: pointer;
       transition: border-color 0.25s;
@@ -228,7 +231,7 @@ main {
       margin: 3px 0 1px 0;
       grid-column: 2;
       background-color: $button-background;
-      border: 1px solid $button-border;
+      border: 1px solid rgb(35, 34, 103);
       outline: none;
       font-family: Inter, Calibri, Verdana, system-ui, Avenir, Helvetica, Arial,
         sans-serif;
@@ -279,7 +282,7 @@ main {
 
       input[type='checkbox'] {
         cursor: pointer;
-        accent-color: $button-background;
+        accent-color: $buttons-text;
       }
     }
   }

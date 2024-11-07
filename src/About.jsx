@@ -10,6 +10,9 @@ function About() {
           <Link to="/">
             <FaHome />
           </Link>
+          {/* <a href="https://github.com/siebentod/rigveda">
+            <FaGithub />
+          </a> */}
         </div>
         <div className="about__main">
           <p>
