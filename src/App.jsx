@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { FaGithub, FaInfo, FaArrowUp } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaInfo,
+  FaArrowUp,
+  FaAlignJustify,
+  FaBars,
+} from 'react-icons/fa';
 import parse from 'html-react-parser';
 import { Helmet } from 'react-helmet';
 
@@ -143,10 +149,15 @@ function App() {
           )}
           <div className="filter__buttons">
             <div
-              className={`arrow-left ${!showCards ? ' toggle' : ''} ${
-                !showFilter ? ' move' : ''
-              }`}
+              // className={`arrow-left ${!showCards ? ' toggle' : ''} ${
+              className={`arrow-left ${!showFilter ? ' move' : ''}`}
               onClick={handleLeftArrow}
+            >
+              <FaBars />
+            </div>
+            <div
+              className={`arrow-up ${!showFilter ? ' toggle' : ''}`}
+              onClick={handleArrow}
             >
               <FaArrowUp />
             </div>
@@ -170,12 +181,6 @@ function App() {
                 </button>
               </div>
             )}
-            <div
-              className={`arrow-up ${!showFilter ? ' toggle' : ''}`}
-              onClick={handleArrow}
-            >
-              <FaArrowUp />
-            </div>
           </div>
           {showFilter && searchText && (
             <div className="countResults" style={{ fontSize: '0.8rem' }}>
