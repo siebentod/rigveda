@@ -486,3 +486,20 @@ span.external-link {
   margin-top: 10px;
   margin-bottom: 4px;
 }
+
+@media (max-width: 650px) {
+  .icons {
+    display: none;
+  }
+  .openRandom {
+    display: none;
+  }
+  .modal-scrollable-content {
+    margin-left: 15px;
+    margin-right: 5px;
+  }
+  .cards {
+    flex: 1 1 0;
+    max-width: unset;
+  }
+}
