@@ -4,7 +4,7 @@ import {
   FaGithub,
   FaInfo,
   FaArrowUp,
-  FaAlignJustify,
+  // FaAlignJustify,
   FaBars,
 } from 'react-icons/fa';
 import parse from 'html-react-parser';
