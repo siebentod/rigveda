@@ -409,7 +409,7 @@ main {
   right: 1px;
   height: 10px;
   width: 10px;
-  background-image: url('./cross.svg');
+  background-image: url('/cross.svg');
   background-size: 10px 10px;
   &:hover {
     cursor: pointer;
@@ -454,7 +454,7 @@ main {
 }
 
 span.external-link {
-  content: url('./external-link.svg');
+  content: url('/external-link.svg');
   display: inline-block;
   width: 0.5em;
   height: 0.5em;
@@ -462,10 +462,10 @@ span.external-link {
 }
 
 .modal-close {
-  font-size: 1.188rem;
+  font-size: 1.188rem !important;
   position: absolute;
   top: 1.5%;
-  right: 1.5%;
+  right: 3%;
   background: none;
   border: none;
   cursor: pointer;
