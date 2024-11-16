@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { FaHome } from 'react-icons/fa';
 
 function About() {
@@ -7,7 +7,7 @@ function About() {
       {/* <HeadInHelmet /> */}
       <div className="about">
         <div className="about__icons">
-          <Link to="/">
+          <Link href="/">
             <FaHome />
           </Link>
           {/* <a href="https://github.com/siebentod/rigveda">
