@@ -217,7 +217,7 @@ main {
       }
     }
     > :last-child {
-      margin-left: 20px;
+      margin-left: 15px;
       @media (max-width: 650px) {
         margin-left: 5px;
       }
@@ -252,7 +252,7 @@ main {
 
     .inputPlusCheckbox {
       display: flex;
-      margin: 3px 17px 1px 0;
+      margin: 3px 12px 1px 0;
       height: 27px;
 
       input[type='search'] {
