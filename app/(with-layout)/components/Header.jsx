@@ -1,4 +1,5 @@
 import { FaGithub, FaInfo, FaArrowUp, FaBars } from 'react-icons/fa';
+import { AiOutlineClose } from 'react-icons/ai';
 
 import Link from 'next/link';
 
@@ -7,6 +8,7 @@ function Header({
   handleLeftArrow,
   handleArrow,
   onSearchChange,
+  handleClearSearch,
   handleRandom,
   filteredCount,
   strict,
@@ -44,12 +46,22 @@ function Header({
           {showFilter && (
             <div className="inputPlusRandom">
               <div className="inputPlusCheckbox scalable">
-                <input
-                  onChange={onSearchChange}
-                  type="search"
-                  value={searchText}
-                  placeholder="Поиск по тексту"
-                />
+                <div className="search-wrapper">
+                  <input
+                    onChange={onSearchChange}
+                    type="search"
+                    value={searchText}
+                    placeholder="Поиск по тексту"
+                  />
+                  {searchText && (
+                    <button
+                      className="clear-select"
+                      onClick={handleClearSearch}
+                    >
+                      <AiOutlineClose />
+                    </button>
+                  )}
+                </div>
                 <input
                   type="checkbox"
                   title="Strict"

@@ -255,6 +255,12 @@ main {
       margin: 3px 12px 1px 0;
       height: 27px;
 
+      input::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        appearance: none;
+        display: none;
+      }
+
       input[type='search'] {
         height: 100%;
         background-color: $input-background;
@@ -284,6 +290,26 @@ main {
           color: $placeholder-color;
           font: inherit;
           opacity: 1;
+        }
+      }
+
+      .search-wrapper {
+        position: relative;
+        height: 100%;
+      }
+      .clear-select {
+        position: absolute;
+        right: 2px;
+        top: 50%;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-content: center;
+        transform: translateY(-50%);
+        color: hsl(221, 8%, 50%);
+        &:hover {
+          color: hsl(221, 8%, 60%);
         }
       }
 

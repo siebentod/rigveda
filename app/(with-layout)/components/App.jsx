@@ -68,6 +68,10 @@ function App({ children }) {
     setShowCards((showCards) => !showCards);
   };
 
+  const handleClearSearch = () => {
+    setSearchText('');
+  };
+
   return (
     <>
       <div className={`prajapati ${!showFilter ? 'filterHidden' : ''}`}>
@@ -75,6 +79,7 @@ function App({ children }) {
           showFilter={showFilter}
           handleLeftArrow={handleLeftArrow}
           handleArrow={handleArrow}
+          handleClearSearch={handleClearSearch}
           onSearchChange={onSearchChange}
           handleRandom={handleRandom}
           filteredCount={filteredCount}
